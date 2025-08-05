@@ -199,6 +199,7 @@
                     >
                         <span id="selectedDateText" class="text-gray-500">Klik untuk pilih tanggal</span>
                     </button>
+                    <input type="hidden" id="dateInput" name="date" required>
                 </div>
 
                 <!-- Pilih Jam -->
@@ -478,6 +479,10 @@
             document.getElementById('selectedDateText').classList.remove('text-gray-500');
             document.getElementById('selectedDateText').classList.add('text-gray-900');
             
+             // **Update value hidden input**
+            const input = document.getElementById('dateInput');
+            input.value = selectedDate.toISOString().split('T')[0]; 
+    
             // Close modal
             dateModal.classList.remove('show');
         }
