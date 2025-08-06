@@ -487,8 +487,11 @@
             document.getElementById('selectedDateText').classList.add('text-gray-900');
             
              // **Update value hidden input**
-            const input = document.getElementById('dateInput');
-            input.value = selectedDate.toISOString().split('T')[0]; 
+                const input = document.getElementById('dateInput');
+                const yearVal = selectedDate.getFullYear();
+                const monthVal = String(selectedDate.getMonth() + 1).padStart(2, '0');
+                const dayVal = String(selectedDate.getDate()).padStart(2, '0');
+                input.value = `${yearVal}-${monthVal}-${dayVal}`;
     
             // Close modal
             dateModal.classList.remove('show');
